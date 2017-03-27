@@ -38,6 +38,7 @@ class BlogsController < OpenReadController
   # DELETE /blogs/1
   def destroy
     @blog.destroy
+    head :no_content
   end
 
   # Use callbacks to share common setup or constraints between actions.
