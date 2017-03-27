@@ -5,7 +5,8 @@ class CommentsController < OpenReadController
 
   # GET /comments
   def index
-    @comments = Comment.where(user_id: current_user)
+    @blog = Blog.find(params[:blog_id])
+    @comments = @blog.comments
 
     render json: @comments
   end
@@ -49,7 +50,7 @@ class CommentsController < OpenReadController
 
   # Only allow a trusted parameter "white list" through.
   def comment_params
-    params.require(:comment).permit(:comment)
+    params.require(:comment).permit(:comment, :blog_id)
   end
   private :comment_params
 end
