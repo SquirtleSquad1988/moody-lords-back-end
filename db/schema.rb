@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170327030028) do
+ActiveRecord::Schema.define(version: 20170327041943) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,15 @@ ActiveRecord::Schema.define(version: 20170327030028) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "shopping_carts", force: :cascade do |t|
+    t.integer  "records_id"
+    t.integer  "users_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["records_id"], name: "index_shopping_carts_on_records_id", using: :btree
+    t.index ["users_id"], name: "index_shopping_carts_on_users_id", using: :btree
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",           null: false
     t.string   "token",           null: false
@@ -66,4 +75,6 @@ ActiveRecord::Schema.define(version: 20170327030028) do
   add_foreign_key "comments", "blogs"
   add_foreign_key "comments", "users"
   add_foreign_key "examples", "users"
+  add_foreign_key "shopping_carts", "records", column: "records_id"
+  add_foreign_key "shopping_carts", "users", column: "users_id"
 end
