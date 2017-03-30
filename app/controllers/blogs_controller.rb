@@ -5,13 +5,14 @@ class BlogsController < OpenReadController
 
   # GET /blogs
   def index
-    @blogs = Blog.where(user_id: current_user)
+    @blogs = Blog.all.order(created_at: :desc)
 
     render json: @blogs
   end
 
   # GET /blogs/1
   def show
+    @blog = Blog.find(params[:id])
     render json: @blog
   end
 
