@@ -8,6 +8,4 @@ class Record < ApplicationRecord
   validates_numericality_of :press_date
   validates_length_of :price, minimum: 1
   validates_numericality_of :price
-  validates_length_of :quantity, minimum: 1
-  validates_numericality_of :quantity
 end

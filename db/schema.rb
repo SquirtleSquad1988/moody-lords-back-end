@@ -47,7 +47,6 @@ ActiveRecord::Schema.define(version: 20170330135128) do
     t.string   "artist"
     t.integer  "press_date"
     t.decimal  "price"
-    t.integer  "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

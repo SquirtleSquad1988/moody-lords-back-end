@@ -7,7 +7,6 @@ class CreateRecords < ActiveRecord::Migration[5.0]
       t.string :artist
       t.integer :press_date
       t.decimal :price
-      t.integer :quantity
 
       t.timestamps
     end

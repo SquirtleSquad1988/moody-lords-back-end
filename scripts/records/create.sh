@@ -12,8 +12,7 @@ curl "${API}${URL_PATH}" \
       "title": "'"${TITLE}"'",
       "artist": "'"${ARTIST}"'",
       "press_date": "'"${DATE}"'",
-      "price": "'"${PRICE}"'",
-      "quantity": "'"${QUANTITY}"'"
+      "price": "'"${PRICE}"'"
     }
   }'
 echo
