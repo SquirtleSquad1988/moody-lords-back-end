@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 Rails.application.routes.draw do
-  resources :shopping_carts
+  resources :orders
   resources :records
   resources :examples, except: [:new, :edit]
   post '/sign-up' => 'users#signup'
@@ -14,8 +14,8 @@ Rails.application.routes.draw do
   resources :comments, except: [:new, :edit]
   resources :records, only: [:create, :update, :destroy]
   resources :records, except: [:new, :edit]
-  resources :shopping_carts, only: [:create, :update, :destroy]
-  resources :shopping_carts, except: [:new, :edit]
+  resources :orders, only: [:create, :update, :destroy]
+  resources :orders, except: [:new, :edit]
   resources :blogs do
     resources :comments
   end
