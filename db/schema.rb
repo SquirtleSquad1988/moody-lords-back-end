@@ -44,9 +44,9 @@ ActiveRecord::Schema.define(version: 20170421172546) do
 
   create_table "orders", force: :cascade do |t|
     t.boolean  "complete"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
-    t.string   "records",    default: [],              array: true
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.jsonb    "records",    default: "{}"
   end
 
   create_table "records", force: :cascade do |t|

@@ -2,6 +2,6 @@
 
 class AddRecordsToOrders < ActiveRecord::Migration[5.0]
   def change
-    add_column :orders, :records, :string, array: true, default: []
+    add_column :orders, :records, :jsonb, default: '{}'
   end
 end
