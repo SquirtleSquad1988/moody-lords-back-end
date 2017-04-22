@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-class OrdersController < ApplicationController
+class OrdersController < OpenReadController
   before_action :set_order, only: [:show, :update, :destroy]
 
   # GET /orders
   def index
-    @orders = Order.all
+    @orders = Order.where(user_id: current_user)
 
     render json: @orders
   end
@@ -17,7 +17,7 @@ class OrdersController < ApplicationController
 
   # POST /orders
   def create
-    @order = Order.new(order_params)
+    @order = current_user.orders.build(order_params)
 
     if @order.save
       render json: @order, status: :created, location: @order
@@ -40,14 +40,15 @@ class OrdersController < ApplicationController
     @order.destroy
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_order
-      @order = Order.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_order
+    @order = current_user.orders.find(params[:id])
+  end
+  private :set_order
 
-    # Only allow a trusted parameter "white list" through.
-    def order_params
-      params.require(:order).permit(:records, :complete)
-    end
+  # Only allow a trusted parameter "white list" through.
+  def order_params
+    params.require(:order).permit(:records, :complete)
+  end
+  private :order_params
 end
