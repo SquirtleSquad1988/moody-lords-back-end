@@ -18,9 +18,9 @@
 #                password_confirmation: nil)
 # end
 
-User.create!(email: 'q@q',
-             password: 'q',
-             password_confirmation: 'q',
+User.create!(email: 'a@a',
+             password: 'a',
+             password_confirmation: 'a',
              admin: true)
 #
 %w(Revolver
@@ -39,9 +39,9 @@ User.create!(email: 'q@q',
    Yellow_Submarine).each do |name|
   album = name.to_s
   Record.create!(artist: 'The Beatles',
-                title: album,
-                press_date: 1960,
-                price: 15.0)
+                 title: album,
+                 press_date: 1960,
+                 price: 15.0)
 end
 #
 # %w(antony jeff matt jason alex chelsea dave harry).each do |name|
